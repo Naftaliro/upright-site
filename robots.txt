@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://upright.3hz.dev/sitemap.xml

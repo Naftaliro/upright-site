@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Privacy Policy · Upright</title>
+  <meta name="description" content="Upright is an alarm clock app for iPhone. It doesn't collect data about you. Here's exactly what happens to your information.">
+  <link rel="canonical" href="https://upright.3hz.dev/privacy">
+  <meta name="theme-color" content="#1e1e2e">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/iosevka-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/flavor.js"></script>
+</head>
+<body>
+
+<!-- wallpaper. drawn in assets/js/main.js, same prairie as 3hz.dev -->
+<canvas id="wall" aria-hidden="true"></canvas>
+
+<a class="skip" href="#top">skip to content</a>
+
+<header class="bar">
+  <a class="bar-logo" href="/" aria-label="upright home">
+    <svg viewBox="0 0 24 12" aria-hidden="true"><path d="M0 6 Q2 0 4 6 T8 6 T12 6 T16 6 T20 6 T24 6"/></svg>
+    <span>upright</span>
+  </a>
+  <nav class="nav" aria-label="pages">
+    <a href="/">about</a>
+    <a href="/privacy" aria-current="page">privacy</a>
+  </nav>
+  <div class="bar-mods">
+    <button class="mod mod-flavor" id="flavor" type="button" title="switch catppuccin flavor (t)">
+      <span class="swatch" aria-hidden="true"></span><span class="flavor-name">mocha</span>
+    </button>
+    <a class="mod mod-3hz" href="https://3hz.dev" aria-label="3hz.dev">↗<span> 3hz.dev</span></a>
+  </div>
+</header>
+
+<main class="page" id="top">
+  <article class="win" aria-labelledby="t-policy">
+    <header class="win-bar"><span class="win-title"><b>less</b> ~/upright/privacy.md</span><span class="win-meta" id="pos">less</span></header>
+    <div class="win-body">
+      <div class="doc">
+        <h1 id="t-policy">Upright Privacy Policy</h1>
+        <p class="effective"><strong>Effective <time datetime="2026-10-06">October 6, 2026</time></strong></p>
+
+        <p class="tldr">Upright is an alarm clock app for iPhone. This policy explains what happens to your information when you use it. The short version: <strong>Upright doesn't collect data about you.</strong> The only thing that ever leaves your phone is feedback you choose to send.</p>
+
+        <h2>What Upright stores</h2>
+        <p>Your alarms (times, repeat days, labels, and challenge settings) and your app preferences are stored <strong>only on your iPhone</strong>. They are never sent to us or to anyone else. Deleting the app deletes them.</p>
+        <p>Upright schedules your alarms through Apple's AlarmKit, the same system the Clock app uses, so iOS knows when to ring. That stays on your device as part of iOS.</p>
+
+        <h2>What Upright does not do</h2>
+        <ul>
+          <li>No accounts or sign-in.</li>
+          <li>No analytics, tracking, or advertising.</li>
+          <li>No third-party code (SDKs) that collects data.</li>
+          <li>No servers holding your data. The only time Upright uses the internet is when you choose to send feedback (below).</li>
+        </ul>
+
+        <h2>Feedback (optional)</h2>
+        <p>Settings has a feedback form. It's anonymous by default and every question is optional. Nothing is sent until you tap <strong>Send</strong>. When you do:</p>
+        <ul>
+          <li>Your answers go to a small relay run by the developer on Cloudflare, which emails them to the developer. The relay doesn't store them.</li>
+          <li>Unless you uncheck it, the message includes the app version, iOS version, and iPhone model (for example "iPhone18,4"), to help reproduce bugs. That doesn't identify you.</li>
+          <li>It only includes your name or contact details if you type them into the optional field.</li>
+          <li>As with any website, Cloudflare processes your IP address to deliver the request. The relay doesn't record it or include it in the email.</li>
+        </ul>
+        <p>If the relay can't be reached, the form offers to send through your Mail app instead. In that case the developer sees your email address, as with any email.</p>
+        <p>Feedback is used only to improve Upright.</p>
+
+        <h2>TestFlight</h2>
+        <p>If you're testing a beta through Apple's TestFlight, Apple may share crash reports, usage information, and any feedback you send through TestFlight with the developer, as described in Apple's TestFlight terms. Upright itself doesn't add anything to that.</p>
+
+        <h2>Children</h2>
+        <p>Upright doesn't knowingly collect information from anyone, including children under 13.</p>
+
+        <h2>Changes</h2>
+        <p>If this policy changes, the new version will be posted here with a new effective date.</p>
+
+        <h2>Contact</h2>
+        <p>Questions? Email <a href="mailto:upright@3hz.dev">upright@3hz.dev</a>.</p>
+      </div>
+      <p class="end" aria-hidden="true">(END)</p>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p>upright · made by <a href="https://3hz.dev">3hz</a> · <a href="mailto:upright@3hz.dev">upright@3hz.dev</a></p>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

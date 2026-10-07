@@ -1,0 +1,249 @@
+/* upright.3hz.dev
+   same catppuccin setup as 3hz.dev, cut down to one quiet page.
+   colors: https://catppuccin.com/palette  (mocha is the default) */
+
+@font-face { font-family: "Iosevka"; src: url("../fonts/iosevka-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Iosevka"; src: url("../fonts/iosevka-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Iosevka"; src: url("../fonts/iosevka-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Silkscreen"; src: url("../fonts/silkscreen-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+
+/* ── palettes ─────────────────────────────────────────── */
+
+:root, [data-flavor="mocha"] {
+  --rosewater:#f5e0dc; --flamingo:#f2cdcd; --pink:#f5c2e7; --mauve:#cba6f7; --red:#f38ba8; --maroon:#eba0ac;
+  --peach:#fab387; --yellow:#f9e2af; --green:#a6e3a1; --teal:#94e2d5; --sky:#89dceb; --sapphire:#74c7ec;
+  --blue:#89b4fa; --lavender:#b4befe; --text:#cdd6f4; --subtext1:#bac2de; --subtext0:#a6adc8;
+  --overlay2:#9399b2; --overlay1:#7f849c; --overlay0:#6c7086; --surface2:#585b70; --surface1:#45475a;
+  --surface0:#313244; --base:#1e1e2e; --mantle:#181825; --crust:#11111b;
+  color-scheme: dark;
+}
+[data-flavor="macchiato"] {
+  --rosewater:#f4dbd6; --flamingo:#f0c6c6; --pink:#f5bde6; --mauve:#c6a0f6; --red:#ed8796; --maroon:#ee99a0;
+  --peach:#f5a97f; --yellow:#eed49f; --green:#a6da95; --teal:#8bd5ca; --sky:#91d7e3; --sapphire:#7dc4e4;
+  --blue:#8aadf4; --lavender:#b7bdf8; --text:#cad3f5; --subtext1:#b8c0e0; --subtext0:#a5adcb;
+  --overlay2:#939ab7; --overlay1:#8087a2; --overlay0:#6e738d; --surface2:#5b6078; --surface1:#494d64;
+  --surface0:#363a4f; --base:#24273a; --mantle:#1e2030; --crust:#181926;
+  color-scheme: dark;
+}
+[data-flavor="frappe"] {
+  --rosewater:#f2d5cf; --flamingo:#eebebe; --pink:#f4b8e4; --mauve:#ca9ee6; --red:#e78284; --maroon:#ea999c;
+  --peach:#ef9f76; --yellow:#e5c890; --green:#a6d189; --teal:#81c8be; --sky:#99d1db; --sapphire:#85c1dc;
+  --blue:#8caaee; --lavender:#babbf1; --text:#c6d0f5; --subtext1:#b5bfe2; --subtext0:#a5adce;
+  --overlay2:#949cbb; --overlay1:#838ba7; --overlay0:#737994; --surface2:#626880; --surface1:#51576d;
+  --surface0:#414559; --base:#303446; --mantle:#292c3c; --crust:#232634;
+  color-scheme: dark;
+}
+[data-flavor="latte"] {
+  /* latte's accents are pastel enough that small text on a light background gets
+     hard to read, so these are the same hues pulled darker (oklch lightness only)
+     until they pass wcag aa. the originals are in the comments. */
+  --rosewater:#974b3c; /* #dc8a78 */ --flamingo:#a24346; /* #dd7878 */ --pink:#a33389;  /* #ea76cb */
+  --mauve:#802ce4;     /* #8839ef */ --red:#c20f35;      /* #d20f39 */ --maroon:#c01935; /* #e64553 */
+  --peach:#aa4005;     /* #fe640b */ --yellow:#8a5507;   /* #df8e1d */ --green:#1f7107;  /* #40a02b */
+  --teal:#056d73;      /* #179299 */ --sky:#046993;      /* #04a5e5 */ --sapphire:#076c7c; /* #209fb5 */
+  --blue:#0b55e3;      /* #1e66f5 */ --lavender:#4755c6; /* #7287fd */
+  --text:#4c4f69; --subtext1:#5c5f77; --subtext0:#5c5f77; /* #6c6f85 */
+  --overlay2:#7c7f93; --overlay1:#8c8fa1; --overlay0:#9ca0b0; --surface2:#acb0be; --surface1:#bcc0cc;
+  --surface0:#ccd0da; --base:#eff1f5; --mantle:#e6e9ef; --crust:#dce0e8;
+  color-scheme: light;
+}
+
+/* ── knobs ────────────────────────────────────────────── */
+
+:root {
+  --page: 780px;
+  --radius: 10px;
+  --border: 2px;
+  --mono: "Iosevka", "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --pixel: "Silkscreen", var(--mono);
+  --dim: var(--subtext0);
+  --pill: color-mix(in srgb, var(--surface0) 70%, var(--mantle));
+  --on-accent: var(--crust);
+  --glow: conic-gradient(from 45deg, var(--mauve), var(--lavender), var(--pink), var(--mauve));
+}
+:root[data-flavor="latte"] { --pill: var(--base); --on-accent: var(--base); }
+@supports not (color: color-mix(in srgb, red, blue)) {
+  :root { --pill: var(--surface0); }
+}
+
+/* ── base ─────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--crust); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--mono);
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--text);
+}
+p, ul, h1, h2 { margin: 0; }
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--sky); }
+:focus-visible { outline: 2px solid var(--mauve); outline-offset: 2px; border-radius: 4px; }
+::selection { background: color-mix(in srgb, var(--mauve) 35%, transparent); color: var(--text); }
+b, strong { font-weight: 700; }
+
+.skip { position: absolute; left: -999px; top: 8px; z-index: 50; background: var(--mauve); color: var(--on-accent); padding: 4px 10px; border-radius: 6px; }
+.skip:focus { left: 8px; }
+
+/* the 3hz prairie at night, drawn once and left alone */
+#wall {
+  position: fixed; inset: 0;
+  width: 100vw; height: 100vh; height: 100lvh;
+  image-rendering: pixelated;
+  z-index: -1;
+  background: var(--crust);
+}
+
+/* ── bar ──────────────────────────────────────────────── */
+
+.bar {
+  display: flex; align-items: center; gap: 8px;
+  width: calc(100% - 20px);
+  max-width: calc(var(--page) - 20px);
+  min-height: 42px;
+  margin: 14px auto 0;
+  padding: 5px 6px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  background: var(--mantle);
+  border: var(--border) solid var(--surface0);
+  border-radius: var(--radius);
+}
+.bar a { text-decoration: none; }
+.bar-logo {
+  display: flex; align-items: center; gap: 7px;
+  height: 30px; padding: 0 10px;
+  color: var(--on-accent);
+  background: var(--mauve);
+  border-radius: 7px;
+  font-family: var(--pixel);
+  font-size: 13px;
+  letter-spacing: .02em;
+}
+.bar-logo:hover { color: var(--on-accent); background: var(--lavender); }
+.bar-logo svg { width: 24px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.nav { display: flex; gap: 2px; }
+.nav a {
+  display: flex; align-items: center;
+  height: 30px; padding: 0 9px;
+  color: var(--dim);
+  border-radius: 7px;
+}
+.nav a:hover, .nav a[aria-current] { background: var(--pill); color: var(--text); }
+.bar-mods { display: flex; gap: 6px; margin-left: auto; }
+.mod {
+  display: flex; align-items: center; gap: 7px;
+  height: 30px; padding: 0 11px;
+  font: inherit;
+  color: var(--subtext1);
+  background: var(--pill);
+  border: 0;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+a.mod:hover { color: var(--text); background: var(--surface1); }
+.mod-flavor { color: var(--mauve); cursor: pointer; }
+.mod-flavor:hover { background: var(--surface1); }
+.swatch { width: 11px; height: 11px; border-radius: 50%; background: conic-gradient(var(--mauve) 0 25%, var(--pink) 0 50%, var(--lavender) 0 75%, var(--blue) 0); }
+
+/* ── the window ───────────────────────────────────────── */
+
+.page { max-width: var(--page); margin: 0 auto; padding: 14px 10px 0; }
+.win {
+  border: var(--border) solid transparent;
+  border-radius: var(--radius);
+  background: linear-gradient(var(--base), var(--base)) padding-box, var(--glow) border-box;
+}
+.win-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 7px 18px 6px;
+  font-size: 13px;
+  color: var(--dim);
+  border-bottom: 1px solid var(--surface0);
+}
+.win-bar b { color: var(--mauve); margin-right: 4px; }
+.win-meta { white-space: nowrap; }
+.win-body { padding: 24px 30px 28px; }
+
+.cmd { color: var(--text); margin-bottom: 16px; }
+.p-dir { color: var(--blue); font-weight: 700; }
+.p-arrow { color: var(--green); }
+
+/* ── the policy ───────────────────────────────────────── */
+
+.doc { max-width: 80ch; }
+.doc h1 { font-size: 1.7rem; line-height: 1.2; color: var(--mauve); }
+.effective { margin-top: 4px; color: var(--dim); }
+.doc > * + * { margin-top: 1em; }
+.doc h2 { margin-top: 2em; font-size: 1.08rem; color: var(--text); }
+.doc h2::before { content: "## "; color: var(--mauve); font-weight: 400; }
+.doc p { color: var(--subtext1); }
+.doc p strong { color: var(--text); }
+.doc ul { padding-left: 1.4em; list-style: none; color: var(--subtext1); }
+.doc li { position: relative; }
+.doc li + li { margin-top: .4em; }
+.doc li::before { content: "-"; position: absolute; left: -1.2em; color: var(--teal); }
+.tldr {
+  padding: 12px 16px;
+  color: var(--subtext1);
+  background: var(--mantle);
+  border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0;
+}
+.end {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 0 6px;
+  font-size: 13.5px;
+  color: var(--base);
+  background: var(--text);
+}
+
+/* the home page */
+.app h1 { font-size: 2rem; line-height: 1.15; color: var(--mauve); }
+.app .lede { margin-top: 6px; color: var(--subtext1); }
+.links { margin-top: 22px; padding: 0; list-style: none; }
+.links li + li { margin-top: 6px; }
+.links li::before { content: "❯ "; color: var(--green); }
+
+/* ── footer ───────────────────────────────────────────── */
+
+.foot {
+  max-width: var(--page);
+  margin: 26px auto 0;
+  padding: 0 16px 80px;
+  font-size: 13px;
+  text-align: center;
+  color: var(--dim);
+}
+.foot a { color: var(--subtext1); }
+.foot a:hover { color: var(--mauve); }
+
+@media (max-width: 720px) {
+  body { font-size: 15px; }
+  .bar { width: calc(100% - 16px); margin-top: 8px; }
+  .page { padding: 8px 8px 0; }
+  .win-bar { padding: 7px 14px 6px; }
+  .win-body { padding: 18px 16px 22px; }
+  .doc h1 { font-size: 1.45rem; }
+}
+@media (max-width: 480px) {
+  .bar { flex-wrap: wrap; }
+  .nav { order: 3; width: 100%; border-top: 1px solid var(--surface0); padding-top: 5px; }
+  .mod-flavor .flavor-name, .mod-3hz span { display: none; }
+}
+
+@media print {
+  #wall, .bar, .skip, .win-bar, .foot, .cmd, .end { display: none !important; }
+  html, body { background: #fff; color: #000; }
+  .page { max-width: none; padding: 0; }
+  .win { border: 0; background: none; }
+  .win-body { padding: 0; }
+  .doc { max-width: none; }
+  .doc h1, .doc h2, .doc h2::before, .doc p, .doc p strong, .doc ul, .effective { color: #000; }
+  .tldr { background: none; border-left: 2px solid #000; }
+  a { color: #000; }
+}

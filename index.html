@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Upright · an alarm clock for iPhone</title>
+  <meta name="description" content="Upright is an alarm clock app for iPhone. Help, feedback and the privacy policy.">
+  <link rel="canonical" href="https://upright.3hz.dev/">
+  <meta name="theme-color" content="#1e1e2e">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/iosevka-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/flavor.js"></script>
+</head>
+<body>
+
+<!-- wallpaper. drawn in assets/js/main.js, same prairie as 3hz.dev -->
+<canvas id="wall" aria-hidden="true"></canvas>
+
+<a class="skip" href="#top">skip to content</a>
+
+<header class="bar">
+  <a class="bar-logo" href="/" aria-label="upright home">
+    <svg viewBox="0 0 24 12" aria-hidden="true"><path d="M0 6 Q2 0 4 6 T8 6 T12 6 T16 6 T20 6 T24 6"/></svg>
+    <span>upright</span>
+  </a>
+  <nav class="nav" aria-label="pages">
+    <a href="/" aria-current="page">about</a>
+    <a href="/privacy">privacy</a>
+  </nav>
+  <div class="bar-mods">
+    <button class="mod mod-flavor" id="flavor" type="button" title="switch catppuccin flavor (t)">
+      <span class="swatch" aria-hidden="true"></span><span class="flavor-name">mocha</span>
+    </button>
+    <a class="mod mod-3hz" href="https://3hz.dev" aria-label="3hz.dev">↗<span> 3hz.dev</span></a>
+  </div>
+</header>
+
+<main class="page" id="top">
+  <section class="win" aria-labelledby="t-app">
+    <header class="win-bar"><span class="win-title"><b>cat</b> ~/upright/README</span><span class="win-meta">ios</span></header>
+    <div class="win-body app">
+      <p class="cmd"><span class="p-dir">~</span> <span class="p-arrow">❯</span> cat upright/README</p>
+      <h1 id="t-app">upright</h1>
+      <p class="lede">An alarm clock app for iPhone.</p>
+      <ul class="links">
+        <li>help or feedback: Settings → feedback in the app, or email <a href="mailto:upright@3hz.dev">upright@3hz.dev</a></li>
+        <li><a href="/privacy">privacy policy</a> (short version: it doesn't collect data about you)</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>upright · made by <a href="https://3hz.dev">3hz</a> · <a href="mailto:upright@3hz.dev">upright@3hz.dev</a></p>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>
