@@ -46,9 +46,9 @@
     <div class="win-body">
       <div class="doc">
         <h1 id="t-policy">Upright Privacy Policy</h1>
-        <p class="effective"><strong>Effective <time datetime="2026-10-06">October 6, 2026</time></strong></p>
+        <p class="effective"><strong>Effective <time datetime="2026-10-09">October 9, 2026</time></strong></p>
 
-        <p class="tldr">Upright is an alarm clock app for iPhone. This policy explains what happens to your information when you use it. The short version: <strong>Upright doesn't collect data about you.</strong> The only thing that ever leaves your phone is feedback you choose to send.</p>
+        <p class="tldr">Upright is an alarm clock app for iPhone. This policy explains what happens to your information when you use it. The short version: <strong>Upright doesn't collect data about you.</strong> The only things that ever leave your phone are feedback you choose to send and, if you turn them on, alarm reports.</p>
 
         <h2>What Upright stores</h2>
         <p>Your alarms (times, repeat days, labels, and challenge settings) and your app preferences are stored <strong>only on your iPhone</strong>. They are never sent to us or to anyone else. Deleting the app deletes them.</p>
@@ -59,7 +59,7 @@
           <li>No accounts or sign-in.</li>
           <li>No analytics, tracking, or advertising.</li>
           <li>No third-party code (SDKs) that collects data.</li>
-          <li>No servers holding your data. The only time Upright uses the internet is when you choose to send feedback (below).</li>
+          <li>No servers holding your data. Upright only uses the internet to send feedback or alarm reports you've chosen to send (below).</li>
         </ul>
 
         <h2>Feedback (optional)</h2>
@@ -68,10 +68,20 @@
           <li>Your answers go to a small relay run by the developer on Cloudflare, which emails them to the developer. The relay doesn't store them.</li>
           <li>Unless you uncheck it, the message includes the app version, iOS version, and iPhone model (for example "iPhone18,4"), to help reproduce bugs. That doesn't identify you.</li>
           <li>It only includes your name or contact details if you type them into the optional field.</li>
+          <li>If you check <strong>Attach Alarm Check report</strong>, it also includes that report (see below).</li>
           <li>As with any website, Cloudflare processes your IP address to deliver the request. The relay doesn't record it or include it in the email.</li>
         </ul>
         <p>If the relay can't be reached, the form offers to send through your Mail app instead. In that case the developer sees your email address, as with any email.</p>
         <p>Feedback is used only to improve Upright.</p>
+
+        <h2>Alarm reports (optional, off by default)</h2>
+        <p><strong>Settings → Alarm Check</strong> shows what Upright has scheduled and a log of recent alarm activity: alarms added or changed, when they rang, and whether they were stopped or solved. This log is kept only on your iPhone.</p>
+        <p>It leaves your phone only if you choose to send it:</p>
+        <ul>
+          <li><strong>Attach Alarm Check report</strong> in the feedback form sends it once, with that message.</li>
+          <li><strong>Send reports automatically</strong> in Alarm Check is off unless you turn it on. When on, Upright sends the report after alarms have rung, at most once every few hours, so the developer can find bugs you might not notice.</li>
+        </ul>
+        <p>A report contains your alarm times and labels, the activity log, the alarms permission setting, your time zone, and the app version, iOS version, and iPhone model. It goes through the same relay as feedback, which emails it to the developer and stores nothing. It contains no name, account, or advertising identifier, and isn't used for anything except fixing Upright. Turn the switch off at any time and nothing more is sent.</p>
 
         <h2>TestFlight</h2>
         <p>If you're testing a beta through Apple's TestFlight, Apple may share crash reports, usage information, and any feedback you send through TestFlight with the developer, as described in Apple's TestFlight terms. Upright itself doesn't add anything to that.</p>
