@@ -46,9 +46,9 @@
     <div class="win-body">
       <div class="doc">
         <h1 id="t-policy">Upright Privacy Policy</h1>
-        <p class="effective"><strong>Effective <time datetime="2026-10-13">October 13, 2026</time></strong></p>
+        <p class="effective"><strong>Effective <time datetime="2026-10-15">October 15, 2026</time></strong></p>
 
-        <p class="tldr">Upright is an alarm clock app for iPhone. This policy explains what happens to your information when you use it. The short version: <strong>Upright doesn't collect data about you.</strong> The only things that ever leave your phone are feedback you choose to send and, if you say yes to them, alarm reports.</p>
+        <p class="tldr">Upright is an alarm clock app for iPhone. This policy explains what happens to your information when you use it. The short version: <strong>Upright doesn't collect data about you.</strong> The only things that ever leave your phone are feedback you choose to send, alarm reports if you say yes to them, and Buddy Alerts if you use them.</p>
 
         <h2>What Upright stores</h2>
         <p>Your alarms (times, repeat days, labels, sounds, notes, and challenge settings), your app preferences, and your mornings history (when each alarm rang and when you finished its challenge, shown in the Mornings tab) are stored <strong>only on your iPhone</strong>. They are never sent to us or to anyone else. Deleting the app deletes them.</p>
@@ -60,12 +60,21 @@
           <li>No accounts or sign-in.</li>
           <li>No analytics, tracking, or advertising.</li>
           <li>No third-party code (SDKs) that collects data.</li>
-          <li>No servers holding your data. Upright only uses the internet to send feedback or alarm reports you've chosen to send (below).</li>
+          <li>Upright only uses the internet for things you choose: sending feedback or alarm reports, and Buddy Alerts (below).</li>
         </ul>
 
         <h2>Wake-Up Buddy (optional)</h2>
-        <p>If you choose a buddy for the good-morning text, iOS's contact picker gives Upright only the name and phone number you pick, and they stay on your iPhone. After you solve a challenge, Upright can open Messages with "I'm up" filled in. You send it yourself, from your own number.</p>
-        <p>If you set up Text If I Sleep In, a Shortcuts automation on your iPhone texts a person you choose when an alarm rings out without being solved. Your iPhone sends that text from your own Messages. Upright only tells the automation whether an alarm was missed; it never sees who that text goes to.</p>
+        <p>If you choose a buddy, iOS's contact picker gives Upright only the name and phone number you pick, and they stay on your iPhone. Upright can open Messages with a short heads-up for your buddy, and after you solve a challenge, with "I'm up" filled in. You send these yourself, from your own number. Nothing about your buddy is sent to the developer.</p>
+
+        <h2>Buddy Alerts (optional)</h2>
+        <p>Buddy Alerts lets a friend's Upright tell them when you sleep through an alarm, and when you're up. It starts only when you invite a buddy or accept an invite. It uses a small server run by the developer on Cloudflare, which stores:</p>
+        <ul>
+          <li>A random ID for your iPhone and a secret only your iPhone knows (the server keeps a one-way fingerprint of the secret, not the secret itself), and the first name you choose to show your buddies.</li>
+          <li>Your iPhone's notification address from Apple, so alerts can reach you.</li>
+          <li>Who is whose buddy, and invites that haven't been used yet.</li>
+          <li>If you've invited a buddy: the times of your next alarm rings (up to three days ahead) and when you finished each challenge, so the server can tell your buddies if you slept through or when you're up.</li>
+        </ul>
+        <p>There's no account, email address or phone number. Rings are deleted after three days, unused invites after two days, and everything about an iPhone that hasn't used Buddy Alerts for six months. <strong>Leave Buddy Alerts</strong> in Settings deletes everything about you right away. As with any website, Cloudflare processes your IP address to deliver requests; the server doesn't record it. None of this is used for anything but Buddy Alerts.</p>
 
         <h2>Tips (optional)</h2>
         <p>Settings has optional tips. They're In-App Purchases handled entirely by Apple: Upright never sees your payment details, and a tip unlocks nothing.</p>
