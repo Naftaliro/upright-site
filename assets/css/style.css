@@ -205,6 +205,11 @@ a.mod:hover { color: var(--text); background: var(--surface1); }
 /* the home page */
 .app h1 { font-size: 2rem; line-height: 1.15; color: var(--mauve); }
 .app .lede { margin-top: 6px; color: var(--subtext1); }
+/* apple's official badge: don't recolor or redraw it, keep some space around it */
+.store { margin-top: 18px; }
+.store-badge { display: inline-block; line-height: 0; border-radius: 8px; }
+.store-badge img { display: block; height: 50px; width: auto; }
+.req { margin-top: 8px; color: var(--subtext0); font-size: 14px; }
 .links { margin-top: 22px; padding: 0; list-style: none; }
 .links li + li { margin-top: 6px; }
 .links li::before { content: "❯ "; color: var(--green); }
@@ -219,6 +224,9 @@ a.mod:hover { color: var(--text); background: var(--surface1); }
   text-align: center;
   color: var(--dim);
 }
+.foot .store-badge { margin-bottom: 12px; }
+.foot .store-badge img { height: 40px; }
+.foot-tm { margin-top: 10px; font-size: 11px; }
 .foot a { color: var(--subtext1); }
 .foot a:hover { color: var(--mauve); }
 
@@ -237,7 +245,7 @@ a.mod:hover { color: var(--text); background: var(--surface1); }
 }
 
 @media print {
-  #wall, .bar, .skip, .win-bar, .foot, .cmd, .end { display: none !important; }
+  #wall, .bar, .skip, .win-bar, .foot, .cmd, .end, .store { display: none !important; }
   html, body { background: #fff; color: #000; }
   .page { max-width: none; padding: 0; }
   .win { border: 0; background: none; }

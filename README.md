@@ -8,6 +8,7 @@ same catppuccin setup as [3hz.dev](https://3hz.dev). plain html, css and js, no 
 | `privacy.html` | the privacy policy, served at `/privacy` |
 | `index.html` | the about / support page |
 | `assets/` | styles, the wallpaper script, fonts |
+| `assets/img/app-store-badge.svg` | apple's official "download on the app store" badge, from developer.apple.com. apple doesn't allow changing it, so leave it as is |
 
 ## changing the policy
 
